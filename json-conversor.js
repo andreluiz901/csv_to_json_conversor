@@ -24,4 +24,4 @@ async function convertCsvToJson(csvFilePath) {
   return dataJson;
 }
 
-console.log(await convertCsvToJson("./organization.csv"));
+console.log(await convertCsvToJson(".examples/organization.csv"));
