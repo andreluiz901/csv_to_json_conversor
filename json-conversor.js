@@ -1,7 +1,4 @@
-// JSON format: Objeto
-
 import fs from "node:fs/promises";
-import { Readable } from "node:stream";
 
 export async function convertCsvFileToJson(csvFilePath) {
   const buffer = await fs.readFile(csvFilePath);
@@ -26,7 +23,7 @@ export async function convertCsvFileToJson(csvFilePath) {
 }
 
 export async function convertCsvBufferToJsonFile(fileBuffer) {
-  const dataCsv = fileBuffer.toString("utf-8").split("\n");
+  const dataCsv = fileBuffer.toString().split("\n");
 
   const titles = dataCsv[0].split(",");
   dataCsv.shift();
