@@ -1,12 +1,15 @@
-import { convertCsvBufferToJsonFileTEST } from "./json-conversor.js";
+import {
+  convertCsvBufferToJsonFileTEST,
+  convertCsvFileToJsonTEST_v2,
+} from "./json-conversor.js";
 import { convertCsvFileToJsonTEST } from "./json-conversor.js";
 
 // Attack use case
-const attackString = Buffer.from(",,,,,, \n".repeat(60000));
+// const attackString = Buffer.from(",,,,,, \n".repeat(60000));
 
-console.log(await convertCsvBufferToJsonFileTEST(attackString));
+// console.log(await convertCsvBufferToJsonFileTEST(attackString));
 
 // Good use case
 const goodString = "./examples/mini.csv";
 
-console.log(await convertCsvFileToJsonTEST(goodString));
+console.log(await convertCsvFileToJsonTEST_v2(goodString));

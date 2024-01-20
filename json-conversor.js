@@ -119,3 +119,37 @@ export async function convertCsvFileToJsonTEST(csvFilePath) {
 
   return dataJson;
 }
+
+export async function convertCsvFileToJsonTEST_v2(csvFilePath) {
+  const buffer = await fs.readFile(csvFilePath);
+
+  const dataCsv = Buffer.from(buffer).toString().split("\n");
+
+  const titles = dataCsv[0].split(",");
+  dataCsv.shift();
+  const csvMap = new Map();
+  let index = 1;
+  dataCsv.map((row) => {
+    const rowValues = row.split(regex);
+    const props = Object(titles);
+    console.log("props", props);
+    csvMap.set(index, { ...rowValues });
+    index++;
+  });
+
+  console.log("csvMap", csvMap);
+
+  // const dataJson = dataCsv.map((current) => {
+  //   const values = current.split(regex);
+
+  //   const newObject = titles.reduce((objAcc, objCurrent, objIndex) => {
+  //     objAcc[objCurrent] = values[objIndex];
+
+  //     return objAcc;
+  //   }, {});
+
+  //   return newObject;
+  // });
+
+  // return dataJson;
+}
